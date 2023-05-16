@@ -1,5 +1,6 @@
 DOCKER=docker compose
 COMPOSER=symfony composer
+SYMFONY=symfony
 
 .DEFAULT_GOAL := docker-install
 
@@ -31,3 +32,6 @@ docker-down: ## down the stack
 
 docker-sh: ## Connect to the docker container
 	$(DOCKER) exec -it api zsh
+
+test: ## Connect to the docker container
+	$(SYMFONY) php bin/phpunit
